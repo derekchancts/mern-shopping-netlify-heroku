@@ -5,7 +5,8 @@ import axios from 'axios';
 export const getItems = () => dispatch => {
   dispatch(setItemsLoading());
   axios
-    .get('/api/items')
+    // .get('/api/items')
+    .get('https://mern-shopping-netlify-heroku.herokuapp.com/api/items')
     .then(res => 
       dispatch({
         type: GET_ITEMS,
@@ -21,7 +22,7 @@ export const getItems = () => dispatch => {
 
 export const deleteItem = (id) => dispatch => {
   axios 
-    .delete(`/api/items/${id}`)
+    .delete(`https://mern-shopping-netlify-heroku.herokuapp.com/api/items/${id}`)
     .then(() => {
       dispatch({
         type: DELETE_ITEM,
@@ -34,7 +35,7 @@ export const deleteItem = (id) => dispatch => {
 
 export const addItem = (newData) => dispatch => {
   axios
-    .post('/api/items', newData)
+    .post('https://mern-shopping-netlify-heroku.herokuapp.com/api/items', newData)
     .then(res => {
       dispatch({
         type: ADD_ITEM,
